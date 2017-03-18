@@ -16,6 +16,16 @@
     <%= f.number_field :user_id %>
   </div>
 
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :titulo %>
+    <%= f.text_field :title %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
