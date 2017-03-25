@@ -25,7 +25,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
         <li><%= link_to "Subir una imagen!", new_post_path, class: "active" %><span class="sr-only">(current)</span></li>
+      <% end %>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -34,11 +36,11 @@
         <button type="submit" class="btn btn-default">Buscar</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li>
         <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Perfil de usuario", edit_user_registration_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <%= link_to "Log in", new_user_session_path %></li>
+          <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
