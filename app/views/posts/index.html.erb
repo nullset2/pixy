@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class = "container">
 <% if Post.any? %>
     <% @posts.each do |post| %>
         <div class = "well row">
@@ -25,8 +26,11 @@
         </div>
     <% end %>
 <% else %>
-    <h4>Nadie ha subido imagenes todavia... se el primero!</h4>
+    <div class = "well row">
+        <h4>Nadie ha subido imagenes todavia... se el primero!</h4>
+    </div>
 <% end %>
+</div>
 
 <%= link_to 'Subir nueva imagen', new_post_path %>
 <br>
