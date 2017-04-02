@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
-  has_attached_file :avatar, styles: { medium: "600x600>", thumbnail: "50x50>" }
+  has_attached_file :avatar, styles: { medium: "600x600>", thumbnail: "50x50>" }, default_url: "missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 end
