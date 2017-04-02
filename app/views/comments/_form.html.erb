@@ -9,7 +9,11 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
+
+  <div class="field">
+    <%= f.hidden_field :post_id, value: @post.id %>
+  </div>
 
   <div class="field">
     <%= f.label :tu_comentario %>

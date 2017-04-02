@@ -16,7 +16,9 @@
             <h4>Comentarios:</h4>
             <div class = "row">
                 <% if post.comments.any? %>
-                    <%= render template: "comments/index" %>
+                    <% post.comments.each do |comment| %>
+                        <%= render partial: "comments/show", locals: { comment: comment } %>
+                    <% end %>
                 <% else %>
                     <p>Nadie ha comentado sobre este post todavía... se el primero!</p>
                 <% end %>
