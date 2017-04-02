@@ -11,7 +11,7 @@
     <% if current_user_owns_the_post?(post) %>
       <div class = "row">
           <%= link_to edit_post_path(post) do %><i class = "fa fa-2x fa-pencil"></i> Editar <% end %> 
-          <%= link_to post_path(post), method: :delete do %><i class = "fa fa-2x fa-trash"></i> Borrar Post <% end %>
+          <%= link_to post_path(post), method: :delete, data: { confirm: "Realmente desea borrar?" } do %><i class = "fa fa-2x fa-trash"></i> Borrar Post <% end %>
       </div>
     <% end %>
     </div>
