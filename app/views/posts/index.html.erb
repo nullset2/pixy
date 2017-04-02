@@ -3,7 +3,7 @@
 <h1>Imagenes compartidas</h1>
 
 <% if Post.any? %>
-  <% Post.all.each do |post| %>
+  <% @posts.each do |post| %>
     <div class = "well row">
       <h2><%= post.title %></h2>
       <%= image_tag post.image(:medium) %>
@@ -21,3 +21,6 @@
 <% end %>
 
 <%= link_to 'Subir nueva imagen', new_post_path %>
+<br>
+<%= will_paginate @posts %>
+
