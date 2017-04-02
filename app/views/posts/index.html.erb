@@ -7,13 +7,17 @@
     <div class = "well row">
       <h2><%= post.title %></h2>
       <%= image_tag post.image(:medium) %>
-      <h3><%= image_tag post.user.avatar(:thumbnail)%> <%= post.user.name %></h3>
+      <h4><%= image_tag post.user.avatar(:thumbnail)%> <%= post.user.name %></h4>
     <% if current_user_owns_the_post?(post) %>
       <div class = "row">
           <%= link_to edit_post_path(post) do %><i class = "fa fa-2x fa-pencil"></i> Editar <% end %> 
           <%= link_to post_path(post), method: :delete, data: { confirm: "Realmente desea borrar?" } do %><i class = "fa fa-2x fa-trash"></i> Borrar Post <% end %>
       </div>
     <% end %>
+      <div class = "row">
+        <%= render template: "comments/index" %>
+        <%= link_to new_comment_path do %><i class = "fa fa-2x fa-commenting-o"></i> Nuevo Comentario <% end %>
+      </div>
     </div>
   <% end %>
 <% else %>
