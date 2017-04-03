@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class = "myflash" ><%= notice %></p>
 
 <div class = "container">
 <% if Post.any? %>
@@ -8,8 +8,8 @@
             <%= image_tag post.image(:medium), style: "width: 100%" %>
             <h4><%= image_tag post.user.avatar(:thumbnail)%> <%= post.user.name %>
             <% if current_user_owns_this(post) %>
-                    <%= link_to edit_post_path(post) do %><i class = "fa fa-2x fa-pencil"></i> Editar <% end %>
-                    <%= link_to post_path(post), method: :delete, data: { confirm: "Realmente desea borrar?" } do %><i class = "fa fa-2x fa-trash"></i> Borrar Post <% end %>
+                    <%= link_to edit_post_path(post) do %><i class = "fa fa-pencil"></i> Editar <% end %>
+                    <%= link_to post_path(post), method: :delete, data: { confirm: "Realmente desea borrar?" } do %><i class = "fa fa-trash"></i> Borrar Post <% end %>
             <% end %>
         </h4>
             <h4>Comentarios:</h4>
