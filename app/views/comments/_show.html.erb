@@ -1,6 +1,6 @@
 <p>
 <%= image_tag comment.user.avatar(:thumbnail) %>
-<strong><%= comment.user.name %>: </strong>
+<strong><%= comment.user.name || "Anon" %>: </strong>
 <%= comment.content %>
 <% if current_user_owns_this(comment) %>
     <%= link_to edit_comment_path(comment) do %><i class = "fa fa-pencil"></i> Editar <% end %>
