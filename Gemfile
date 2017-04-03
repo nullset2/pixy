@@ -38,8 +38,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 gem 'font-awesome-sass', '~> 4.7'
 gem 'will_paginate'
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
