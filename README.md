@@ -1,24 +1,10 @@
-# README
+# Pixy 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Anonymous imageboard example.
 
-Things you may want to cover:
+Requires: Rails 5, Ruby 2.x
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Clone the repo
+* `cd` into the directory you just cloned
+* `bundle install`
+* `rails server`
