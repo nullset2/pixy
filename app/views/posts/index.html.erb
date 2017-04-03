@@ -5,7 +5,7 @@
     <% @posts.each do |post| %>
         <div class = "well row">
             <h2><%= post.title %></h2>
-            <%= image_tag post.image(:medium) %>
+            <%= image_tag post.image(:medium), style: "width: 100%" %>
             <h4><%= image_tag post.user.avatar(:thumbnail)%> <%= post.user.name %>
             <% if current_user_owns_this(post) %>
                     <%= link_to edit_post_path(post) do %><i class = "fa fa-2x fa-pencil"></i> Editar <% end %>
