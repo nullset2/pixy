@@ -1,0 +1,52 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: pixy
+  namespace: default
+  labels:
+    app: pixy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pixy
+  template:
+    metadata:
+      labels:
+        app: pixy
+    spec:
+      containers:
+      - name: pixy
+        imagePullPolicy: IfNotPresent
+        image: nullset2/pixy:latest
+        ports:
+        - name: web
+          containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pixy
+
+spec:
+  ports:
+    - name: web
+      port: 80
+      targetPort: web
+
+  selector:
+    app: pixy
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: pixy-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pixy
+          servicePort: 3000
