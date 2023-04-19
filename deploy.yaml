@@ -20,6 +20,50 @@ spec:
       - name: pixy
         imagePullPolicy: IfNotPresent
         image: nullset2/pixy:latest
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: database-url
+              key: database-url
+        - name: AWS_REGION
+          value: ${AWS_REGION}
+        - name: AWS_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aws-access-key
+              key: aws-access-key
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aws-secret-access-key
+              key: aws-secret-access-key
+        - name: GMAIL_USER
+          valueFrom:
+            secretKeyRef:
+              name: gmail-user
+              key: gmail-user
+        - name: GMAIL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: gmail-password
+              key: gmail-password
+        - name: S3_BUCKET_NAME
+          value: ${S3_BUCKET_NAME}
+        - name: SECRET_KEY_BASE
+          value: ${SECRET_KEY_BASE}
+        - name: RAILS_ENV
+          value: ${RAILS_ENV}
+        - name: RACK_ENV
+          value: ${RACK_ENV}
+        - name: PORT
+          value: "3000"
+        - name: LANG
+          value: ${LANG}
+        - name: RAILS_LOG_TO_STDOUT
+          value: ${RAILS_LOG_TO_STDOUT}
+        - name: RAILS_SERVE_STATIC_FILES
+          value: ${RAILS_SERVE_STATIC_FILES}
         ports:
         - name: web
           containerPort: 3000
@@ -37,16 +81,4 @@ spec:
 
   selector:
     app: pixy
----
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: pixy-ingress
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /
-        backend:
-          serviceName: pixy
-          servicePort: 3000
+
