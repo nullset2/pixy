@@ -4,7 +4,7 @@
 <% if Post.any? %>
     <% @posts.each do |post| %>
         <div class = "well row">
-            <h2><%= post.title %></h2>
+            <h2><%= link_to post.title, post %></h2>
             <%= image_tag post.image(:medium), style: "width: 100%" %>
             <h4><%= image_tag post&.user&.avatar(:thumbnail) if post&.user&.avatar(:thumbnail) %> <%= post&.user&.name || "Anon" %>
             <% if current_user_owns_this(post) %>
