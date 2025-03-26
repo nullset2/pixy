@@ -1,3 +1,4 @@
+<div class="well container">
 <%= form_for(comment) do |f| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
@@ -18,7 +19,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :tu_comentario %>
+    <%= f.label :comment %>
     <%= f.text_area :content %>
   </div>
 
@@ -26,3 +27,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

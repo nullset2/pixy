@@ -1,3 +1,4 @@
+<div class="well container">
 <%= form_for(post) do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +18,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :titulo %>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
@@ -25,3 +26,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

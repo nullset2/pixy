@@ -3,7 +3,7 @@
 <strong><%= comment.user.name || "Anon" %>: </strong>
 <%= comment.content %>
 <% if current_user_owns_this(comment) %>
-    <%= link_to edit_comment_path(comment) do %><i class = "fa fa-pencil"></i> Editar <% end %>
-    <%= link_to comment_path(comment), method: :delete, data: { confirm: "Realmente desea borrar?" } do %><i class = "fa fa-trash"></i> Borrar comentario <% end %>
+    <%= link_to edit_comment_path(comment) do %><i class = "fa fa-pencil"></i> Edit <% end %>
+    <%= link_to comment_path(comment), method: :delete, data: { confirm: "Confirm Delete?" } do %><i class = "fa fa-trash"></i> Delete Comment <% end %>
 <% end %>
 </p>

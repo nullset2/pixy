@@ -2,37 +2,15 @@
 
 <div class = "container">
 <% if Post.any? %>
-    <% @posts.each do |post| %>
-        <div class = "well row">
-            <h2><%= link_to post.title, post %></h2>
-            <%= image_tag post.image(:medium), style: "width: 100%" %>
-            <h4><%= image_tag post&.user&.avatar(:thumbnail) if post&.user&.avatar(:thumbnail) %> <%= post&.user&.name || "Anon" %>
-            <% if current_user_owns_this(post) %>
-                    <%= link_to edit_post_path(post) do %><i class = "fa fa-pencil"></i> Editar <% end %>
-                    <%= link_to post_path(post), method: :delete, data: { confirm: "Realmente desea borrar?" } do %><i class = "fa fa-trash"></i> Borrar Post <% end %>
-            <% end %>
-        </h4>
-            <h4>Comentarios:</h4>
-            <div class = "row">
-                <% if post.comments.any? %>
-                    <% post.comments.each do |comment| %>
-                        <%= render partial: "comments/show", locals: { comment: comment } %>
-                    <% end %>
-                <% else %>
-                    <p>Nadie ha comentado sobre este post todavía... se el primero!</p>
-                <% end %>
-            </div>
-                <%= link_to new_comment_path(post_id: post.id) do %><i class = "fa fa-2x fa-commenting-o"></i> Agregar Comentario <% end %>
-        </div>
-    <% end %>
+    <%= render @posts %>
 <% else %>
     <div class = "well row">
-        <h4>Nadie ha subido imagenes todavia... se el primero!</h4>
+        <h4>No posts yet.</h4>
     </div>
 <% end %>
 </div>
 
-<%= link_to 'Subir nueva imagen', new_post_path %>
+<%= link_to 'Post Image', new_post_path %>
 <br>
 <%= will_paginate @posts %>
 
