@@ -1,11 +1,5 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.6.1'
 # Use postgresql as the database for Active Record
@@ -37,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'paperclip-aws'
+gem 'kt-paperclip'
 gem 'aws-sdk-s3'
 gem 'font-awesome-sass', '~> 6.4'
 gem 'will_paginate'
