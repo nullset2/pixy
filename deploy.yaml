@@ -26,8 +26,8 @@ spec:
             secretKeyRef:
               name: database-url
               key: database-url
-        - name: AWS_ENDPOINT_URL
-          value: ${AWS_ENDPOINT_URL}
+        - name: AWS_ENDPOINT
+          value: ${AWS_ENDPOINT}
         - name: AWS_REGION
           value: ${AWS_REGION}
         - name: AWS_ACCESS_KEY_ID
