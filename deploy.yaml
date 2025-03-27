@@ -21,6 +21,8 @@ spec:
         imagePullPolicy: IfNotPresent
         image: nullset2/pixy:latest
         env:
+        - name: DOMAIN
+          value: ${DOMAIN}
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
@@ -73,4 +75,31 @@ spec:
 
   selector:
     app: pixy
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pixy-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+    traefik.frontend.rule.type: PathPrefix
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: ${DOMAIN}
+    http:
+      paths:
+      - path: /pixy
+        pathType: Prefix
+        backend:
+          service:
+            name: pixy
+            port:
+              number: 80
+  tls:
+    - secretName: nullset2-tls
+      hosts:
+        - ${DOMAIN}
+
 
