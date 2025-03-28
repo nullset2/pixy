@@ -4,8 +4,8 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :avatar_actual %><br />
-    <%= image_tag resource.avatar(:thumbnail) %>
+    <%= f.label :current_avatar %><br />
+    <%= image_tag resource.avatar&.url(:thumbnail) %>
   </div>
 
   <div class="field">

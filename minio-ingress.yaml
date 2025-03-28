@@ -5,14 +5,13 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: nullset2.zapto.org
+    - host: ${DOMAIN} 
       http:
         paths:
-          - path: /minio
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: minio
                 port:
-                  number: 9000
-
+                  number: 80

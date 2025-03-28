@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: pixy
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         image: nullset2/pixy:latest
         env:
         - name: DOMAIN

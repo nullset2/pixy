@@ -100,20 +100,23 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_protocol: 'http',
-    s3_permissions: 'private',
+    s3_permissions: 'public',
     s3_region: ENV['AWS_REGION'] || 'us-west-1',
     s3_credentials: {
       bucket: ENV['S3_BUCKET_NAME'],
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     },
-    s3_host_name: "#{ENV['DOMAIN']}/minio",
+    s3_host_name: "#{ENV['DOMAIN']}:9000",
     s3_options: {
       endpoint: ENV['AWS_ENDPOINT'],
       force_path_style: true
-    }
+    },
+    url: ':s3_path_url',
+    path: '/:class/:attachment/:id_partition/:style/:filename'
   }
 
   config.hosts << ENV["DOMAIN"]
+  config.hosts << "localhost"
 
 end

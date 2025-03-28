@@ -1,5 +1,5 @@
 <p>
-<%= image_tag comment.user.avatar(:thumbnail) %>
+<%= image_tag comment.user&.avatar&.url(:thumbnail) %>
 <strong><%= comment.user.name || "Anon" %>: </strong>
 <%= comment.content %>
 <% if current_user_owns_this(comment) %>
