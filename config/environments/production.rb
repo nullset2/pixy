@@ -99,8 +99,8 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
     storage: :s3,
-    s3_protocol: 'http',
-    s3_permissions: 'public',
+    s3_protocol: 'https',
+    s3_permissions: 'public_read',
     s3_region: ENV['AWS_REGION'] || 'us-west-1',
     s3_credentials: {
       bucket: ENV['S3_BUCKET_NAME'],
