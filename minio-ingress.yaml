@@ -2,6 +2,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: minio-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+    traefik.frontend.rule.type: PathPrefix
 spec:
   ingressClassName: traefik
   rules:
@@ -15,3 +19,14 @@ spec:
                 name: minio
                 port:
                   number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: minio
+                port:
+                  number: 443
+  tls:
+    - secretName: nullset2-tls
+      hosts:
+        - ${DOMAIN}

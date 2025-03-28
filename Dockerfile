@@ -2,6 +2,8 @@ FROM ruby:2.7.7
 
 WORKDIR /app
 ADD . /app
+COPY ./public.crt /usr/local/share/certificates/
+RUN update-ca-certificates
 RUN gem install bundler:1.14.3
 RUN bundle install --system
 
