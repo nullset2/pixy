@@ -107,7 +107,7 @@ Rails.application.configure do
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     },
-    s3_host_name: "#{ENV['DOMAIN']}:9000",
+    s3_host_name: "#{ENV['DOMAIN']}:32000",
     s3_options: {
       endpoint: ENV['AWS_ENDPOINT'],
       force_path_style: true
