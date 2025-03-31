@@ -1,0 +1,21 @@
+<div class="container">
+    <% Post.all.each_slice(6) do |batch| %>
+        <div class="row">
+            <% batch.each do |post| %>
+                <div class="col-lg-2 col-md-4 col-sm-6 text-center">
+                    <%= link_to(post_path(post)) do %>
+                        <div class="thumbnail">
+                            <%= image_tag post.image.url(:medium), class: "img-responsive" %>
+                            <div class="caption">
+                                <h5><%= post.title %></h5>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+
+<%= link_to 'Post Image', new_post_path %>

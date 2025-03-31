@@ -8,6 +8,13 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true).order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
+  # GET /posts/catalog
+  # GET /posts/catalog.json
+  def catalog
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).order("created_at DESC").paginate(page: params[:page], per_page: 5)
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
