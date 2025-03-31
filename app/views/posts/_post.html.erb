@@ -1,7 +1,7 @@
 <div class = "well row">
     <h2><%= link_to post.title, post %></h2>
-    <%= image_tag post.image.url(:medium), style: "width: 100%" %>
-    <h4><%= image_tag post&.user&.avatar&.url(:thumbnail) if post&.user&.avatar(:thumbnail) %> <%= post&.user&.name || "Anon" %>
+	<%= link_to (image_tag post.image.url(:medium), class:"img-responsive center-block"), post.image.url(:original) %>
+    <h4><%= image_tag post&.user&.avatar&.url(:thumbnail) %> <%= post&.user&.name || "Anon" %>
     <% if current_user_owns_this(post) %>
 	    <%= link_to edit_post_path(post) do %><i class = "fa fa-pencil"></i> Edit <% end %>
 	    <%= link_to post_path(post), method: :delete, data: { confirm: "Confirm delete?" } do %><i class = "fa fa-trash"></i> Delete Post <% end %>
@@ -9,7 +9,7 @@
 	</h4>
     <h4>Comments:</h4>
     <div class = "row">
-	<% if post.comments.any? %>
+	<% if post.comments.present? %>
 	    <% post.comments.each do |comment| %>
 		<%= render partial: "comments/show", locals: { comment: comment } %>
 	    <% end %>

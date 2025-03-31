@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .myflash {
-    margin: 0px !important;
     line-height: 400%;
     position: fixed;
     top: 0;
@@ -10,4 +9,5 @@
     font-style: italic !important;
     font-size: 15px;
     background: #bdfedf;
+    margin: 5% !important;
 }

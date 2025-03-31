@@ -1,6 +1,6 @@
 <div class="well container">
 <%= form_for(post) do |f| %>
-  <% if post.errors.any? %>
+  <% if post.errors.present? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
