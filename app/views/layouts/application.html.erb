@@ -47,6 +47,10 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<p id="notice" class = "container myflash" ><%= notice %></p>
+
+<%= button_to "Catalog", posts_catalog_path, class: "btn btn-secondary center-block", method: :get %>
+<br>
     <%= yield %>
   </body>
 </html>
