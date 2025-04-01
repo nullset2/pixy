@@ -1,6 +1,6 @@
 <div class="well container">
 <%= form_for(comment) do |f| %>
-  <% if comment.errors %>
+  <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
@@ -20,7 +20,11 @@
 
   <div class="field">
     <%= f.label :comment %>
-    <%= f.text_area :content %>
+    <% if params[:content] %>
+      <%= f.text_area :content, value: params[:content] %>
+    <% else %>
+      <%= f.text_area :content %>
+    <% end %>
   </div>
 
   <div class="actions">

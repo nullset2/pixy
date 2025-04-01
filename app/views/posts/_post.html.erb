@@ -11,11 +11,11 @@
     <div class = "row">
 	<% if post.comments.present? %>
 	    <% post.comments.each do |comment| %>
-		<%= render partial: "comments/show", locals: { comment: comment } %>
+		<%= render partial: "comments/show", locals: { post: post, comment: comment } %>
 	    <% end %>
 	<% else %>
-	    <p>No comments yet.</p>
+	    <div class = "container"> <ul><li>No comments yet.</li></ul> </div>
 	<% end %>
     </div>
-	<%= link_to new_comment_path(post_id: post.id) do %><i class = "fa fa-2x fa-commenting-o"></i> Post comment... <% end %>
+	<%= link_to new_comment_path(post_id: post.id) do %><i class = "fa fa-commenting"></i> Post comment... <% end %>
 </div>

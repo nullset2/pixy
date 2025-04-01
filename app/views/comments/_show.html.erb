@@ -1,9 +1,11 @@
-<p>
-<%= image_tag comment.user&.avatar&.url(:thumbnail) %>
+<div class="container">
+<div id=<%=comment.id%> class="thumbnail">
+<%= link_to "[##{comment.id}]", new_comment_path(post_id: post.id, content: "@#{comment.id}\n"), alt: "Reply" %>
 <strong><%= comment.user&.name || "Anon" %>: </strong>
 <%= comment.content %>
 <% if current_user_owns_this(comment) %>
     <%= link_to edit_comment_path(comment) do %><i class = "fa fa-pencil"></i> Edit <% end %>
     <%= link_to comment_path(comment), method: :delete, data: { confirm: "Confirm Delete?" } do %><i class = "fa fa-trash"></i> Delete Comment <% end %>
 <% end %>
-</p>
+</div>
+</div>
