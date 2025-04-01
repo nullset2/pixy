@@ -5,14 +5,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    @posts = @q.result(distinct: true).order("updated_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   # GET /posts/catalog
   # GET /posts/catalog.json
   def catalog
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    @posts = @q.result(distinct: true).order("updated_at DESC")
   end
 
   # GET /posts/1

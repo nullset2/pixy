@@ -1,5 +1,5 @@
 <div class="container">
-    <% Post.all.each_slice(6) do |batch| %>
+    <% @posts.each_slice(6) do |batch| %>
         <div class="row">
             <% batch.each do |post| %>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center">
@@ -16,6 +16,5 @@
         </div>
     <% end %>
 </div>
-
 
 <%= link_to 'Post Image', new_post_path %>
