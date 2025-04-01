@@ -13,6 +13,7 @@
   <% end %>
 
   <div class="field">
+    <%= image_tag post.image.url(:original) %>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>

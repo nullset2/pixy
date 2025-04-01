@@ -19,6 +19,12 @@
   <% end %>
 
   <div class="field">
+    <%= image_tag comment.image.url(:original) %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
     <%= f.label :comment %>
     <% if params[:content] %>
       <%= f.text_area :content, value: params[:content] %>
