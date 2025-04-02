@@ -13,7 +13,9 @@
   <% end %>
 
   <div class="field">
-    <%= image_tag post.image.url(:original) %>
+    <% if post.image.present? %>
+      <%= image_tag post.image.url(:original) %>
+    <% end %>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>

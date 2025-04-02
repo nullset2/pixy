@@ -20,7 +20,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  config.assets.js_compressor = Uglifier.new(harmony: true)
+  config.assets.js_compressor = Uglifier.new(harmony: true, mangle: false, compress: false)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -108,7 +108,7 @@ Rails.application.configure do
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     },
-    s3_host_name: "#{ENV['DOMAIN']}:32000",
+    s3_host_name: "#{ENV['DOMAIN']}:9000",
     s3_options: {
       endpoint: ENV['AWS_ENDPOINT'],
       force_path_style: true
