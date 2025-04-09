@@ -10,9 +10,19 @@
     <h4>Comments:</h4>
     <div class = "row">
 	<% if post.comments.present? %>
-	    <% post.comments.each do |comment| %>
+		<% if defined? comments %>
+	    <% post.comments.last(comments).each do |comment| %>
 		<%= render partial: "comments/show", locals: { post: post, comment: comment } %>
-	    <% end %>
+		<% end %>
+		<% if post.comments.length > 5 %>
+        <div class = "container"><%= link_to "See all comments...", post %></div>
+		<% end %>
+		<br>
+		<% else %>
+		<% post.comments.each do |comment| %>
+		<%= render partial: "comments/show", locals: { post: post, comment: comment } %>
+		<% end %>
+		<% end %>
 	<% else %>
 	    <div class = "container"> <ul><li>No comments yet.</li></ul> </div>
 	<% end %>

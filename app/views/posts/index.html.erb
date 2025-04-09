@@ -1,6 +1,6 @@
 <div class = "container">
 <% if Post.any? %>
-    <%= render @posts %>
+    <%= render @posts, comments: 5 %>
 <% else %>
     <div class = "well row">
         <h4>No posts yet.</h4>
