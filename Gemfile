@@ -37,6 +37,7 @@ gem 'font-awesome-sass', '~> 6.4'
 gem 'will_paginate'
 gem 'ransack'
 gem 'devise-guests'
+gem 'honeypot-captcha'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

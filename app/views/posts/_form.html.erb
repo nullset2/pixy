@@ -1,5 +1,5 @@
 <div class="well container">
-<%= form_for(post) do |f| %>
+  <%= form_for(post, html: { honeypot: true }) do |f| %>
   <% if post.errors.present? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
