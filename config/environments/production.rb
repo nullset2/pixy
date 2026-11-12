@@ -26,8 +26,6 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  config.assets.prefix = '/pixy'
-
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -108,7 +106,7 @@ Rails.application.configure do
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     },
-    s3_host_name: "#{ENV['DOMAIN']}:9000",
+    s3_host_name: ENV['MINIO_DOMAIN'],
     s3_options: {
       endpoint: ENV['AWS_ENDPOINT'],
       force_path_style: true
